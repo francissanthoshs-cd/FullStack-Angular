@@ -54,7 +54,7 @@ app.get("/user/:id", (req, res) => {
 });
 
 //Create Data
-app.post("/createuser", (req, res) => {
+app.post("/user", (req, res) => {
   console.log(req.body, "createData");
   let fullName = req.body.fullname;
   let eMail = req.body.email;
@@ -72,7 +72,7 @@ app.post("/createuser", (req, res) => {
 });
 
 //Update Single Data
-app.put("/updateuser/:id", (req, res) => {
+app.put("/user/:id", (req, res) => {
   console.log(req.body, "UpdateData");
   let gId = req.params.id;
   let fullName = req.body.fullname;
@@ -92,7 +92,7 @@ app.put("/updateuser/:id", (req, res) => {
 });
 
 //Delete Single Data
-app.delete("/deleteuser/:id", (req, res) => {
+app.delete("/user/:id", (req, res) => {
   let qId = req.params.id;
   let qr = `delete from user where id=${qId}`;
   db.query(qr, (err, result) => {
