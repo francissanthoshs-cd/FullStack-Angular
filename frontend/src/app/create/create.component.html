@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <!-- shoe error -->
+    <!-- show error -->
     <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show"
         role="alert">
         <strong>{{errormsg}}</strong>
@@ -13,7 +13,7 @@
             aria-label="Close"></button>
     </div>
 
-    <form [formGroup]="userForm" (ngSubmit)="userSubmit()">
+    <form [formGroup]="userForm">
         <div class="col-lg-4 mt-2">
             <input type="text" class="form-control" formControlName="fullname"
                 placeholder="Enter Your FullName" />
@@ -27,8 +27,11 @@
                 placeholder="Enter Your Mobile" />
         </div>
 
-        <div class="col-lg-4 mt-2">
+        <div class="col-lg-4 mt-2" *ngIf="!getparamid" (click)="userSubmit()">
             <button class="btn btn-primary btn-sm">Create</button>
+        </div>
+        <div class="col-lg-4 mt-2" *ngIf="getparamid" (click)="userUpdate()">
+            <button class="btn btn-dark btn-sm">Update</button>
         </div>
     </form>
 </div>
